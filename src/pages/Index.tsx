@@ -10,6 +10,8 @@ import heroImage from '../../assets/Web_Photo_Editor.jpg';
 import { useParams } from "react-router-dom";
 import guests from "../../guests.json";
 import mandala from "../../assets/madala.png";
+import FriendsCarousel from './FreindsCarousel';
+
 
 type GuestType = {
   name: string;
@@ -281,14 +283,14 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
 <img
   src={mandala}
   alt="Mandala Left"
-  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-[36rem] opacity-100 pointer-events-none select-none"
+  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-[36rem] opacity-90 pointer-events-none select-none"
 />
 
 {/* Mandala background - right */}
 <img
   src={mandala}
   alt="Mandala Right"
-  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-[36rem] opacity-100 pointer-events-none select-none"
+  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-[36rem] opacity-90 pointer-events-none select-none"
 />
 
 
@@ -652,7 +654,9 @@ const Index = () => {
       <OurStory />
       <WeddingDetails guest={guest}/>
       <Gallery />
+      <FriendsCarousel />
       <Footer />
+      
     </div>
   );
 };
