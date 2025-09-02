@@ -22,7 +22,7 @@ import { componentTagger } from "lovable-tagger";
 // }));
 
 export default defineConfig({
-  base: '/wedding/', // Replace with your repo name if needed
+  base: '/wedding1/', // Replace with your repo name if needed
   plugins: [react()],
   resolve: {
     alias: {
