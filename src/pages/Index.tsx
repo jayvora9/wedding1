@@ -7,6 +7,20 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import heroImage from '../../assets/Web_Photo_Editor.jpg';
+import { useParams } from "react-router-dom";
+import guests from "../../guests.json";
+import mandala from "../../assets/madala.png";
+
+type GuestType = {
+  name: string;
+  add1: string;
+  add2: string;
+  side: "Vora" | "Chheda";
+  afternoon: boolean;
+  afternoonCount: number | string;
+  evening: boolean;
+  eveningCount: number | string;
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -116,18 +130,7 @@ const Hero = () => {
         {/* Wedding Date */}
         <div className="font-serif text-xl md:text-2xl mb-8">
           <div className="mb-2">November 29th, 2025</div>
-          {/* <div className="text-champagne/80">Garden Manor Estate</div> */}
         </div>
-
-        {/* Call to Action */}
-        {/* <div className="space-y-4">
-          <button
-            onClick={() => document.querySelector('#rsvp')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-semibold transition-all shadow-gold hover:shadow-lg transform hover:-translate-y-1"
-          >
-            RSVP Now
-          </button>
-        </div> */}
       </div>
 
       {/* Scroll Indicator */}
@@ -142,7 +145,47 @@ const Hero = () => {
   );
 };
 
-const OurStory = () => {
+
+const Guest = ({ guest }: { guest?: GuestType }) => {
+  if (!guest) return null;
+  return (
+    <section id="details" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <div className="ornament text-6xl mb-4">❦</div>
+          {/* <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Our Love Story
+          </h2> */}
+          <div className="w-24 h-1 bg-primary mx-auto"></div>
+          {guest && (
+            <div className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Hello, {guest.name}<br />
+              
+            </div>
+          )}
+          {guest && (
+            
+            <div className="text-lg text-muted-foreground">
+              
+              {guest.add1}, {guest.add2}<br />
+              {guest.side === "Vora"
+                ? "Mrs Daksha Bharat Jethalal Vora Family inviting you"
+                : guest.side === "Chheda"
+                ? "Mrs Deena Nilesh Premji Chheda Family inviting you"
+                : ""}
+            </div>
+            
+          )}
+        </div>
+        <div className="w-24 h-1 bg-primary mx-auto"></div>
+        
+      </div>
+    </section>
+  );
+
+};
+
+const OurStory = ({ guest }: { guest?: GuestType }) => {
   return (
     <section id="story" className="py-20 bg-gradient-romantic">
       <div className="container mx-auto px-4">
@@ -151,9 +194,9 @@ const OurStory = () => {
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
             Our Love Story
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto"></div>
+          
         </div>
-
+        <div className="w-24 h-1 bg-primary mx-auto"></div>
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Story Content */}
@@ -187,31 +230,26 @@ const OurStory = () => {
             <div className="space-y-8">
               <div className="relative">
                 <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-primary/30"></div>
-                
                 <div className="relative pl-12 pb-8">
                   <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                   <div className="font-serif text-lg font-semibold text-foreground">March 2019</div>
                   <div className="text-muted-foreground">First met at Corner Café</div>
                 </div>
-
                 <div className="relative pl-12 pb-8">
                   <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                   <div className="font-serif text-lg font-semibold text-foreground">August 2019</div>
                   <div className="text-muted-foreground">First vacation together in Paris</div>
                 </div>
-
                 <div className="relative pl-12 pb-8">
                   <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                   <div className="font-serif text-lg font-semibold text-foreground">December 2021</div>
                   <div className="text-muted-foreground">Moved in together</div>
                 </div>
-
                 <div className="relative pl-12 pb-8">
                   <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                   <div className="font-serif text-lg font-semibold text-foreground">February 2022</div>
                   <div className="text-muted-foreground">Lisha proposed at Corner Café</div>
                 </div>
-
                 <div className="relative pl-12">
                   <div className="absolute left-2 w-4 h-4 bg-rose-gold rounded-full border-4 border-background"></div>
                   <div className="font-serif text-lg font-semibold text-rose-gold">November 2025</div>
@@ -226,10 +264,35 @@ const OurStory = () => {
   );
 };
 
-const WeddingDetails = () => {
+
+const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
+  if (!guest) return null; // nothing if guest not present
+
+  const hasCeremony = guest.afternoon;
+  const hasReception = guest.evening;
+
   return (
-    <section id="details" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section
+      id="details"
+      className="relative py-20 bg-background overflow-hidden"
+    >
+      {/* Mandala background - left */}
+     {/* Mandala background - left */}
+<img
+  src={mandala}
+  alt="Mandala Left"
+  className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-[36rem] opacity-100 pointer-events-none select-none"
+/>
+
+{/* Mandala background - right */}
+<img
+  src={mandala}
+  alt="Mandala Right"
+  className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-[36rem] opacity-100 pointer-events-none select-none"
+/>
+
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="ornament text-6xl mb-4">❦</div>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -238,118 +301,152 @@ const WeddingDetails = () => {
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto">
+          {/* ✅ If both exist → 2 columns, otherwise center */}
+          <div
+            className={`grid gap-12 ${
+              hasCeremony && hasReception
+                ? "grid md:grid-cols-2 gap-8"
+                : "md:grid-cols-1 justify-center"
+            }`}
+          >
             {/* Ceremony */}
-            <div className="bg-card rounded-lg shadow-romantic overflow-hidden">
-              <div className="bg-gradient-gold p-6">
-                <h3 className="font-serif text-2xl font-bold text-white text-center">
-                  Ceremony
-                </h3>
+            {hasCeremony && (
+              <div className="w-full md:w-[100%] bg-card rounded-lg shadow-romantic overflow-hidden h-full flex flex-col">
+                <div className="bg-gradient-gold p-6">
+                  <h3 className="font-serif text-2xl font-bold text-white text-center">
+                    Ceremony
+                  </h3>
+                </div>
+                <div className="p-8 space-y-6 flex-1">
+                  <div className="flex items-start space-x-4">
+                    <Calendar className="w-6 h-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-card-foreground">
+                        Date
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Saturday, November 29th, 2025
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <Clock className="w-6 h-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-card-foreground">
+                        Time
+                      </h4>
+                      <p className="text-muted-foreground">3:00 PM</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-card-foreground">
+                        Venue
+                      </h4>
+                      <p className="text-muted-foreground">
+                        Shri KVO Jain Seva Samaj
+                        <br />
+                        279, LBS Marg, Near Kurla Court
+                        <br />
+                        Kurla West, Mumbai - 400070
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-card-foreground">
+                        Count
+                      </h4>
+                      <p className="text-muted-foreground">
+                        {guest.afternoonCount === "Sahkutum"
+                          ? "Full Family"
+                          : guest.afternoonCount + " People"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="p-8 space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Calendar className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Date</h4>
-                    <p className="text-muted-foreground">Saturday, November 29th, 2025</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Clock className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Time</h4>
-                    <p className="text-muted-foreground">3:00 PM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Venue</h4>
-                    <p className="text-muted-foreground">
-                      Shri KVO Jain Seva Samaj<br />
-                      279, LBS Marg, Near Kurla Court<br />
-                      Kurla West, Mumbai - 400070
-                    </p>
-                  </div>
-                </div>
-
-                {/* <div className="pt-4">
-                  <p className="text-sm text-muted-foreground italic">
-                    Outdoor ceremony in the rose garden. Weather permitting.
-                  </p>
-                </div> */}
-              </div>
-            </div>
+            )}
 
             {/* Reception */}
-            <div className="bg-card rounded-lg shadow-romantic overflow-hidden">
-              <div className="bg-gradient-gold p-6">
-                <h3 className="font-serif text-2xl font-bold text-white text-center">
-                  Reception
-                </h3>
-              </div>
-              <div className="p-8 space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Clock className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Time</h4>
-                    <p className="text-muted-foreground">6:00 PM - 10:00 PM</p>
-                  </div>
+            {hasReception && (
+              <div className="w-full md:w-[100%] bg-card rounded-lg shadow-romantic overflow-hidden h-full flex flex-col">
+                <div className="bg-gradient-gold p-6">
+                  <h3 className="font-serif text-2xl font-bold text-white text-center">
+                    Reception
+                  </h3>
                 </div>
+                <div className="p-8 space-y-6 flex-1 flex flex-col justify-center">
+  <div className="flex items-start space-x-4">
+    <Calendar className="w-6 h-6 text-primary mt-1" />
+    <div>
+      <h4 className="font-semibold text-card-foreground">Date</h4>
+      <p className="text-muted-foreground">
+        Saturday, November 29th, 2025
+      </p>
+    </div>
+  </div>
 
-                <div className="flex items-start space-x-4">
-                  <MapPin className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Venue</h4>
-                    <p className="text-muted-foreground">
-                       Shri KVO Jain Seva Samaj<br />
-                      279, LBS Marg, Near Kurla Court<br />
-                      Kurla West, Mumbai - 400070
-                    </p>
-                  </div>
-                </div>
+  <div className="flex items-start space-x-4">
+    <Clock className="w-6 h-6 text-primary mt-1" />
+    <div>
+      <h4 className="font-semibold text-card-foreground">Time</h4>
+      <p className="text-muted-foreground">6:00 PM</p>
+    </div>
+  </div>
 
-                {/* <div className="flex items-start space-x-4">
-                  <Music className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h4 className="font-semibold text-card-foreground">Entertainment</h4>
-                    <p className="text-muted-foreground">
-                      Live band, DJ, and dancing<br />
-                      Open bar and dinner
-                    </p>
-                  </div>
-                </div> */}
+  <div className="flex items-start space-x-4">
+    <MapPin className="w-6 h-6 text-primary mt-1" />
+    <div>
+      <h4 className="font-semibold text-card-foreground">Venue</h4>
+      <p className="text-muted-foreground">
+        Shri KVO Jain Seva Samaj
+        <br />
+        279, LBS Marg, Near Kurla Court
+        <br />
+        Kurla West, Mumbai - 400070
+      </p>
+    </div>
+  </div>
 
-                {/* <div className="pt-4">
-                  <p className="text-sm text-muted-foreground italic">
-                    Cocktail hour begins at 5:00 PM in the garden pavilion.
-                  </p>
-                </div> */}
+  <div className="flex items-start space-x-4">
+    <MapPin className="w-6 h-6 text-primary mt-1" />
+    <div>
+      <h4 className="font-semibold text-card-foreground">Count</h4>
+      <p className="text-muted-foreground">
+        {guest.eveningCount === "Sahkutum"
+          ? "Full Family"
+          : guest.eveningCount + " People"}
+      </p>
+    </div>
+  </div>
+</div>
+
               </div>
-            </div>
+            )}
           </div>
 
           {/* Additional Information */}
           <div className="mt-12 bg-blush/50 rounded-lg p-8 text-center">
             <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">
-              Important Information
+              Proud Families
             </h3>
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-muted-foreground">
-              {/* <div>
-                <h4 className="font-semibold text-foreground mb-2">Dress Code</h4>
-                <p>Semi-formal / Cocktail attire</p>
-              </div> */}
+            <div className="grid md:grid-cols-2 gap-6 text-sm text-muted-foreground">
               <div>
-                <h4 className="font-semibold text-foreground mb-2">Parking</h4>
-                <p>Complimentary valet parking available</p>
+                <h4 className="font-semibold text-foreground mb-4">
+                  Vora Family
+                </h4>
+                <p>Daksha Bharat Jethalal Vora</p>
               </div>
-              {/* <div>
-                <h4 className="font-semibold text-foreground mb-2">Accommodations</h4>
-                <p>Room blocks available at nearby hotels</p>
-              </div> */}
+              <div>
+                <h4 className="font-semibold text-foreground mb-4">
+                  Chheda Family
+                </h4>
+                <p>Deena Nilesh Premji Chheda</p>
+              </div>
             </div>
           </div>
         </div>
@@ -357,6 +454,7 @@ const WeddingDetails = () => {
     </section>
   );
 };
+
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -460,7 +558,6 @@ const Gallery = () => {
             >
               <X className="w-8 h-8" />
             </button>
-            
             <div className="bg-white rounded-lg p-4">
               <div className="aspect-square bg-gradient-romantic rounded flex items-center justify-center">
                 <div className="text-center text-muted-foreground">
@@ -471,7 +568,6 @@ const Gallery = () => {
                 </div>
               </div>
             </div>
-
             <button
               onClick={prevImage}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/80 hover:text-white text-2xl"
@@ -491,200 +587,6 @@ const Gallery = () => {
   );
 };
 
-const RSVP = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    guests: '1',
-    attendance: '',
-    dietaryRestrictions: '',
-    message: ''
-  });
-
-  const { toast } = useToast();
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.attendance) {
-      toast({
-        title: "Please fill required fields",
-        description: "Name, email, and attendance confirmation are required.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    // Simulate form submission
-    toast({
-      title: "RSVP Submitted!",
-      description: "Thank you for your response. We can't wait to celebrate with you!",
-    });
-
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      guests: '1',
-      attendance: '',
-      dietaryRestrictions: '',
-      message: ''
-    });
-  };
-
-  // return (
-  //   <section id="rsvp" className="py-20 bg-gradient-romantic">
-  //     <div className="container mx-auto px-4">
-  //       <div className="text-center mb-16">
-  //         <div className="ornament text-6xl mb-4">❦</div>
-  //         <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-  //           RSVP
-  //         </h2>
-  //         <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-  //         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-  //           We're so excited to celebrate with you! Please let us know if you'll be joining us for our special day.
-  //         </p>
-  //       </div>
-
-  //       <div className="max-w-2xl mx-auto">
-  //         <div className="bg-card rounded-lg shadow-romantic p-8">
-  //           <form onSubmit={handleSubmit} className="space-y-6">
-  //             <div className="grid md:grid-cols-2 gap-6">
-  //               <div className="space-y-2">
-  //                 <Label htmlFor="name" className="text-card-foreground font-semibold">
-  //                   Full Name *
-  //                 </Label>
-  //                 <Input
-  //                   id="name"
-  //                   value={formData.name}
-  //                   onChange={(e) => handleInputChange('name', e.target.value)}
-  //                   placeholder="Enter your full name"
-  //                   className="border-border focus:ring-primary"
-  //                 />
-  //               </div>
-
-  //               <div className="space-y-2">
-  //                 <Label htmlFor="email" className="text-card-foreground font-semibold">
-  //                   Email Address *
-  //                 </Label>
-  //                 <Input
-  //                   id="email"
-  //                   type="email"
-  //                   value={formData.email}
-  //                   onChange={(e) => handleInputChange('email', e.target.value)}
-  //                   placeholder="Enter your email"
-  //                   className="border-border focus:ring-primary"
-  //                 />
-  //               </div>
-  //             </div>
-
-  //             <div className="grid md:grid-cols-2 gap-6">
-  //               <div className="space-y-2">
-  //                 <Label htmlFor="phone" className="text-card-foreground font-semibold">
-  //                   Phone Number
-  //                 </Label>
-  //                 <Input
-  //                   id="phone"
-  //                   type="tel"
-  //                   value={formData.phone}
-  //                   onChange={(e) => handleInputChange('phone', e.target.value)}
-  //                   placeholder="Enter your phone number"
-  //                   className="border-border focus:ring-primary"
-  //                 />
-  //               </div>
-
-  //               <div className="space-y-2">
-  //                 <Label htmlFor="guests" className="text-card-foreground font-semibold">
-  //                   Number of Guests
-  //                 </Label>
-  //                 <Select value={formData.guests} onValueChange={(value) => handleInputChange('guests', value)}>
-  //                   <SelectTrigger className="border-border focus:ring-primary">
-  //                     <SelectValue />
-  //                   </SelectTrigger>
-  //                   <SelectContent>
-  //                     <SelectItem value="1">1 Guest</SelectItem>
-  //                     <SelectItem value="2">2 Guests</SelectItem>
-  //                     <SelectItem value="3">3 Guests</SelectItem>
-  //                     <SelectItem value="4">4 Guests</SelectItem>
-  //                   </SelectContent>
-  //                 </Select>
-  //               </div>
-  //             </div>
-
-  //             <div className="space-y-2">
-  //               <Label htmlFor="attendance" className="text-card-foreground font-semibold">
-  //                 Will you be attending? *
-  //               </Label>
-  //               <Select value={formData.attendance} onValueChange={(value) => handleInputChange('attendance', value)}>
-  //                 <SelectTrigger className="border-border focus:ring-primary">
-  //                   <SelectValue placeholder="Select your response" />
-  //                 </SelectTrigger>
-  //                 <SelectContent>
-  //                   <SelectItem value="yes">Yes, I'll be there!</SelectItem>
-  //                   <SelectItem value="no">Sorry, I can't make it</SelectItem>
-  //                 </SelectContent>
-  //               </Select>
-  //             </div>
-
-  //             <div className="space-y-2">
-  //               <Label htmlFor="dietary" className="text-card-foreground font-semibold">
-  //                 Dietary Restrictions or Allergies
-  //               </Label>
-  //               <Input
-  //                 id="dietary"
-  //                 value={formData.dietaryRestrictions}
-  //                 onChange={(e) => handleInputChange('dietaryRestrictions', e.target.value)}
-  //                 placeholder="Please let us know about any dietary needs"
-  //                 className="border-border focus:ring-primary"
-  //               />
-  //             </div>
-
-  //             <div className="space-y-2">
-  //               <Label htmlFor="message" className="text-card-foreground font-semibold">
-  //                 Special Message
-  //               </Label>
-  //               <Textarea
-  //                 id="message"
-  //                 value={formData.message}
-  //                 onChange={(e) => handleInputChange('message', e.target.value)}
-  //                 placeholder="Share your excitement or any special notes"
-  //                 className="border-border focus:ring-primary"
-  //                 rows={4}
-  //               />
-  //             </div>
-
-  //             <div className="text-center pt-4">
-  //               <Button
-  //                 type="submit"
-  //                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-3 text-lg font-semibold shadow-gold hover:shadow-lg transform hover:-translate-y-1 transition-all"
-  //               >
-  //                 Send RSVP
-  //               </Button>
-  //             </div>
-  //           </form>
-  //         </div>
-
-  //         <div className="text-center mt-8">
-  //           <p className="text-sm text-muted-foreground">
-  //             RSVP by May 29th, 2025 • For questions, email us at{' '}
-  //             <a href="mailto:Jay.Lisha.wedding@example.com" className="text-primary hover:underline">
-  //               Jay.Lisha.wedding@example.com
-  //             </a>
-  //           </p>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </section>
-  // );
-};
-
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-12">
@@ -699,7 +601,6 @@ const Footer = () => {
               Thank you for being part of our love story. We can't wait to celebrate with you!
             </p>
           </div>
-
           <div className="flex justify-center space-x-6 mb-8">
             <a
               href="mailto:Jay.Lisha.wedding@example.com"
@@ -723,7 +624,6 @@ const Footer = () => {
               <Facebook className="w-6 h-6" />
             </a>
           </div>
-
           <div className="border-t border-background/20 pt-8">
             <div className="flex items-center justify-center space-x-2 text-background/60">
               <span>Made with</span>
@@ -741,12 +641,16 @@ const Footer = () => {
 };
 
 const Index = () => {
+  const { guestKey } = useParams();
+  const guest: GuestType | undefined = guestKey && guests[guestKey];
+
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <Guest guest={guest} />
       <OurStory />
-      <WeddingDetails />
+      <WeddingDetails guest={guest}/>
       <Gallery />
       <Footer />
     </div>

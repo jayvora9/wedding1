@@ -1,0 +1,32 @@
+{
+  "1234": {
+    "name": "Jay Vora",
+    "add1": "Mazgaon",
+    "add2": "Kutch",
+    "side": "Vora",
+    "afternoon": true,
+    "afternoonCount": 2,
+    "evening": true,
+    "eveningCount": "Sahkutum"
+  },
+  "2001": {
+    "name": "Neha Patel",
+    "add1": "Vastrapur",
+    "add2": "Ahmedabad",
+    "side": "Vora",
+    "afternoon": false,
+    "afternoonCount": 0,
+    "evening": true,
+    "eveningCount": "Sahkutum"
+  },
+  "3002": {
+    "name": "Rahul Mehta",
+    "add1": "Andheri West",
+    "add2": "Mumbai",
+    "side": "Chheda",
+    "afternoon": false,
+    "afternoonCount": 0,
+    "evening": true,
+    "eveningCount": "2"
+  }
+}
