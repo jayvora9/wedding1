@@ -464,51 +464,57 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
             )}
           </div>
 
-          {/* Additional Information */}
-          <div className="mt-12 bg-blush/50 rounded-lg p-8 text-center">
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">
-              Proud Families
-            </h3>
-            <div className="grid md:grid-cols-2 gap-6 text-sm text-muted-foreground">
-              <div>
-                <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
-                  Vora Family
-                </h4>
-                <h4 className="font-semibold text-foreground mb-2">
-                  Dada - Dadi
-                </h4>
-                <p>Mrs Kanchanben Jethalal Mulji Vora</p>
-                <p>Navinal | Mazgaon</p>
-                <h4 className="font-semibold text-foreground mt-2">
-                  Nana - Nani
-                </h4>
-                <p>Mrs Champaben Raghavji Nanji Sethia</p>
-                <p>Karaghoga | Mazgaon</p>
-              </div>
-              <div>
-                <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
-                  Chheda Family
-                </h4>
-                <h4 className="font-semibold text-foreground mb-2">
-                  Dada - Dadi
-                </h4>
-                <p>Mrs Hemlataben Premji Velji Chheda</p>
-                <p>Luni | Chinchpokli</p>
-                <h4 className="font-semibold text-foreground mt-2">
-                  Nana - Nani
-                </h4>
-                <p>Mrs Madhuben Bhavanji Morarji Dedhia</p>
-                <p>Patri | Sion</p>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
   );
 };
 
-
+const AddInfo = () => {
+  return (
+    <>
+      {/* Additional Information */}
+      <div className="mt-16 bg-blush/50 rounded-lg p-4 text-center">
+        <h3 className="font-serif text-2xl font-semibold text-foreground mb-4">
+          Proud Families
+        </h3>
+        <div className="grid md:grid-cols-2 text-sm text-muted-foreground">
+          <div>
+            <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
+              Vora Family
+            </h4>
+            <h4 className="font-semibold text-foreground mb-2">
+              Dada - Dadi
+            </h4>
+            <p>Mrs Kanchanben Jethalal Mulji Vora</p>
+            <p>Navinal | Mazgaon</p>
+            <h4 className="font-semibold text-foreground mt-2">
+              Nana - Nani
+            </h4>
+            <p>Mrs Champaben Raghavji Nanji Sethia</p>
+            <p>Karaghoga | Mazgaon</p>
+          </div>
+          <div>
+            <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
+              Chheda Family
+            </h4>
+            <h4 className="font-semibold text-foreground mb-2">
+              Dada - Dadi
+            </h4>
+            <p>Mrs Hemlataben Premji Velji Chheda</p>
+            <p>Luni | Chinchpokli</p>
+            <h4 className="font-semibold text-foreground mt-2">
+              Nana - Nani
+            </h4>
+            <p>Mrs Madhuben Bhavanji Morarji Dedhia</p>
+            <p>Patri | Sion</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
@@ -701,9 +707,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <Guest guest={guest} />
-      {/* <OurStory /> */}
       <WeddingDetails guest={guest}/>
+      <AddInfo />
       <Gallery />
       <FriendsCarousel />
       <MapSection />
@@ -711,6 +716,7 @@ const Index = () => {
       
     </div>
   );
+
 };
 
 export default Index;
