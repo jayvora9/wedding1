@@ -17,14 +17,14 @@ const Footer = () => {
 
           <div className="flex justify-center space-x-6 mb-8">
             <a
-              href="mailto:Jay.Lisha.wedding@example.com"
+              href="#"
               className="text-background/70 hover:text-champagne transition-colors"
               aria-label="Email us"
             >
               <Mail className="w-6 h-6" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/lifewith_shaay?igsh=MTg0azR1OG4zYTloOA=="
               className="text-background/70 hover:text-champagne transition-colors"
               aria-label="Follow us on Instagram"
             >

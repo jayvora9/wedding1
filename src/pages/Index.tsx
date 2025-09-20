@@ -1,17 +1,27 @@
 import { useState } from 'react';
-import { Menu, X, Heart, Calendar, MapPin, Clock, Music, Instagram, Facebook, Mail } from 'lucide-react';
+import { Menu, X, Heart, Calendar, MapPin, Clock, Music, Instagram, Facebook, Mail, UsersRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import heroImage from '../../assets/Web_Photo_Editor.jpg';
+import heroImage from '../../assets/IMG-20250918-WA0006.jpg';
+import picture1 from '../../assets/img2.jpg';
+import picture2 from '../../assets/img1.jpg';
+import picture3 from '../../assets/DSC09085.png';
+import picture4 from '../../assets/DSC08340.png';
+import picture5 from '../../assets/IMG-20250918-WA0001.jpg';
+import picture6 from '../../assets/IMG-20250918-WA0002.jpg';
+import picture7 from '../../assets/IMG-20250918-WA0003.jpg';
+import picture8 from '../../assets/IMG-20250918-WA0006.jpg';
+import picture9 from '../../assets/IMG-20250918-WA0005.jpg';
 import { useParams } from "react-router-dom";
-import guests from "../../guests.json";
+import guests from "../../wedding_guests.json";
 import mandala from "../../assets/madala.png";
+import logo from '../../assets/logo.png';
 import FriendsCarousel from './FreindsCarousel';
-
+import MapSection from './Map';
 
 type GuestType = {
   name: string;
@@ -101,29 +111,28 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0" >
         <img
-          src={heroImage}
-          alt="Jay and Lisha - Wedding Couple"
-          className="w-full h-full object-cover"
-        />
+  src={heroImage}
+  style={{ marginTop: '60px' }}
+  alt="Jay and Lisha - Wedding Couple"
+  className="w-full h-full object-cover"
+/>
         <div className="absolute inset-0 bg-gradient-overlay"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4">
+      <div className="relative z-10 text-center text-white px-4 -mt-48">
         {/* Ornamental Element */}
-        <div className="mb-8">
-          <div className="text-6xl mb-4 text-champagne">
-            ❦
-          </div>
+        <div className="mb-4">
+           
           <div className="font-serif text-lg tracking-wider uppercase">
             The Wedding Of
           </div>
         </div>
 
         {/* Couple Names */}
-        <div className="mb-8">
+        <div className="mb-4">
           <h1 className="font-script text-6xl md:text-8xl font-bold mb-4 text-champagne">
             Jay & Lisha
           </h1>
@@ -149,122 +158,142 @@ const Hero = () => {
 
 
 const Guest = ({ guest }: { guest?: GuestType }) => {
+  // console.log(guest);
   if (!guest) return null;
+
   return (
-    <section id="details" className="py-20 bg-background">
+    <section id="guest" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="ornament text-6xl mb-4">❦</div>
-          {/* <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Love Story
-          </h2> */}
+           <img
+            src={logo}
+            alt="Custom Logo"
+            className="mx-auto mb-4 h-20 w-20 object-contain"
+          />
           <div className="w-24 h-1 bg-primary mx-auto"></div>
+
           {guest && (
             <div className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Hello, {guest.name}<br />
-              
+              Hello, {guest.name}
+              <br />
             </div>
           )}
+
           {guest && (
-            
-            <div className="text-lg text-muted-foreground">
-              
-              {guest.add1}, {guest.add2}<br />
-              {guest.side === "Vora"
-                ? "Mrs Daksha Bharat Jethalal Vora Family inviting you"
-                : guest.side === "Chheda"
-                ? "Mrs Deena Nilesh Premji Chheda Family inviting you"
-                : ""}
+            <div className="text-lg text-muted-foreground flex justify-center">
+              <div>
+                {(guest?.add1 || guest?.add2) && (
+                  <div className="flex items-center justify-center space-x-2">
+                    <MapPin className="w-6 h-6 text-primary" />
+                    <span>
+                      {guest?.add1}
+                      {guest?.add1 && guest?.add2 ? `, ` : ``}
+                      {guest?.add2}
+                    </span>
+                  </div>
+                )}
+
+                <div>
+                  {guest.side === "Vora"
+                    ? "Mrs Daksha Bharat Jethalal Vora Family invites you"
+                    : guest.side === "Chheda"
+                    ? "Mrs Deena Nilesh Premji Chheda Family invites you"
+                    : ""}
+                </div>
+              </div>
             </div>
-            
           )}
         </div>
+
         <div className="w-24 h-1 bg-primary mx-auto"></div>
-        
       </div>
     </section>
   );
-
 };
 
-const OurStory = ({ guest }: { guest?: GuestType }) => {
-  return (
-    <section id="story" className="py-20 bg-gradient-romantic">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="ornament text-6xl mb-4">❦</div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Love Story
-          </h2>
+
+// const OurStory = ({ guest }: { guest?: GuestType }) => {
+//   // return (
+//   //   <section id="story" className="py-20 bg-gradient-romantic">
+//   //     <div className="container mx-auto px-4">
+//   //       <div className="text-center mb-16">
+//   //         <img
+//   //           src={logo}
+//   //           alt="Custom Logo"
+//   //           className="mx-auto mb-4 h-20 w-20 object-contain"
+//   //         />
+//   //         <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
+//   //           Our Love Story
+//   //         </h2>
           
-        </div>
-        <div className="w-24 h-1 bg-primary mx-auto"></div>
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Story Content */}
-            <div className="space-y-8">
-              <div className="bg-card p-8 rounded-lg shadow-romantic">
-                <div className="flex items-center mb-4">
-                  <Heart className="w-6 h-6 text-primary mr-3" />
-                  <h3 className="font-serif text-2xl font-semibold text-card-foreground">
-                    How We Met
-                  </h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our story began on a rainy Tuesday at a cozy coffee shop downtown. Lisha was reading his favorite novel when Jay accidentally spilled her latte on his book. What started as an embarrassing moment turned into hours of conversation and endless laughter.
-                </p>
-              </div>
+//   //       </div>
+//   //       <div className="w-24 h-1 bg-primary mx-auto"></div>
+//   //       <div className="max-w-4xl mx-auto">
+//   //         <div className="grid md:grid-cols-2 gap-12 items-center">
+//   //           {/* Story Content */}
+//   //           <div className="space-y-8">
+//   //             <div className="bg-card p-8 rounded-lg shadow-romantic">
+//   //               <div className="flex items-center mb-4">
+//   //                 <Heart className="w-6 h-6 text-primary mr-3" />
+//   //                 <h3 className="font-serif text-2xl font-semibold text-card-foreground">
+//   //                   How We Met
+//   //                 </h3>
+//   //               </div>
+//   //               <p className="text-muted-foreground leading-relaxed">
+//   //                 Our story began on a rainy Tuesday at a cozy coffee shop downtown. Lisha was reading his favorite novel when Jay accidentally spilled her latte on his book. What started as an embarrassing moment turned into hours of conversation and endless laughter.
+//   //               </p>
+//   //             </div>
 
-              <div className="bg-card p-8 rounded-lg shadow-romantic">
-                <div className="flex items-center mb-4">
-                  <Heart className="w-6 h-6 text-primary mr-3" />
-                  <h3 className="font-serif text-2xl font-semibold text-card-foreground">
-                    The Proposal
-                  </h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Three years later, Lisha took Jay back to that same coffee shop. As she ordered her usual latte, the barista handed her a cup with "Will you marry me?" written on it. When she turned around, Lisha was on one knee with the most beautiful ring she had ever seen.
-                </p>
-              </div>
-            </div>
+//   //             <div className="bg-card p-8 rounded-lg shadow-romantic">
+//   //               <div className="flex items-center mb-4">
+//   //                 <Heart className="w-6 h-6 text-primary mr-3" />
+//   //                 <h3 className="font-serif text-2xl font-semibold text-card-foreground">
+//   //                   The Proposal
+//   //                 </h3>
+//   //               </div>
+//   //               <p className="text-muted-foreground leading-relaxed">
+//   //                 Three years later, Lisha took Jay back to that same coffee shop. As she ordered her usual latte, the barista handed her a cup with "Will you marry me?" written on it. When she turned around, Lisha was on one knee with the most beautiful ring she had ever seen.
+//   //               </p>
+//   //             </div>
+//   //           </div>
 
-            {/* Timeline */}
-            <div className="space-y-8">
-              <div className="relative">
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-primary/30"></div>
-                <div className="relative pl-12 pb-8">
-                  <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  <div className="font-serif text-lg font-semibold text-foreground">March 2019</div>
-                  <div className="text-muted-foreground">First met at Corner Café</div>
-                </div>
-                <div className="relative pl-12 pb-8">
-                  <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  <div className="font-serif text-lg font-semibold text-foreground">August 2019</div>
-                  <div className="text-muted-foreground">First vacation together in Paris</div>
-                </div>
-                <div className="relative pl-12 pb-8">
-                  <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  <div className="font-serif text-lg font-semibold text-foreground">December 2021</div>
-                  <div className="text-muted-foreground">Moved in together</div>
-                </div>
-                <div className="relative pl-12 pb-8">
-                  <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                  <div className="font-serif text-lg font-semibold text-foreground">February 2022</div>
-                  <div className="text-muted-foreground">Lisha proposed at Corner Café</div>
-                </div>
-                <div className="relative pl-12">
-                  <div className="absolute left-2 w-4 h-4 bg-rose-gold rounded-full border-4 border-background"></div>
-                  <div className="font-serif text-lg font-semibold text-rose-gold">November 2025</div>
-                  <div className="text-muted-foreground">Our Wedding Day!</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+//   //           {/* Timeline */}
+//   //           <div className="space-y-8">
+//   //             <div className="relative">
+//   //               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-primary/30"></div>
+//   //               <div className="relative pl-12 pb-8">
+//   //                 <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+//   //                 <div className="font-serif text-lg font-semibold text-foreground">March 2019</div>
+//   //                 <div className="text-muted-foreground">First met at Corner Café</div>
+//   //               </div>
+//   //               <div className="relative pl-12 pb-8">
+//   //                 <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+//   //                 <div className="font-serif text-lg font-semibold text-foreground">August 2019</div>
+//   //                 <div className="text-muted-foreground">First vacation together in Paris</div>
+//   //               </div>
+//   //               <div className="relative pl-12 pb-8">
+//   //                 <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+//   //                 <div className="font-serif text-lg font-semibold text-foreground">December 2021</div>
+//   //                 <div className="text-muted-foreground">Moved in together</div>
+//   //               </div>
+//   //               <div className="relative pl-12 pb-8">
+//   //                 <div className="absolute left-2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
+//   //                 <div className="font-serif text-lg font-semibold text-foreground">February 2022</div>
+//   //                 <div className="text-muted-foreground">Lisha proposed at Corner Café</div>
+//   //               </div>
+//   //               <div className="relative pl-12">
+//   //                 <div className="absolute left-2 w-4 h-4 bg-rose-gold rounded-full border-4 border-background"></div>
+//   //                 <div className="font-serif text-lg font-semibold text-rose-gold">November 2025</div>
+//   //                 <div className="text-muted-foreground">Our Wedding Day!</div>
+//   //               </div>
+//   //             </div>
+//   //           </div>
+//   //         </div>
+//   //       </div>
+//   //     </div>
+//   //   </section>
+//   // );
+// };
 
 
 const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
@@ -296,7 +325,11 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="ornament text-6xl mb-4">❦</div>
+           <img
+            src={logo}
+            alt="Custom Logo"
+            className="mx-auto mb-4 h-20 w-20 object-contain"
+          />
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
             Wedding Details
           </h2>
@@ -309,7 +342,7 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
             className={`grid gap-12 ${
               hasCeremony && hasReception
                 ? "grid md:grid-cols-2 gap-8"
-                : "md:grid-cols-1 justify-center"
+                : "md:grid-cols-1 justify-center m-12"
             }`}
           >
             {/* Ceremony */}
@@ -357,15 +390,15 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
-                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <UsersRound className="w-6 h-6 text-primary mt-1" />
                     <div>
                       <h4 className="font-semibold text-card-foreground">
                         Count
                       </h4>
                       <p className="text-muted-foreground">
-                        {guest.afternoonCount === "Sahkutum"
+                        {guest.afternoonCount === "Sah kutum"
                           ? "Full Family"
-                          : guest.afternoonCount + " People"}
+                          : guest.afternoonCount }
                       </p>
                     </div>
                   </div>
@@ -415,13 +448,13 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
   </div>
 
   <div className="flex items-start space-x-4">
-    <MapPin className="w-6 h-6 text-primary mt-1" />
+    <UsersRound className="w-6 h-6 text-primary mt-1" />
     <div>
       <h4 className="font-semibold text-card-foreground">Count</h4>
       <p className="text-muted-foreground">
         {guest.eveningCount === "Sahkutum"
           ? "Full Family"
-          : guest.eveningCount + " People"}
+          : guest.eveningCount}
       </p>
     </div>
   </div>
@@ -438,16 +471,34 @@ const WeddingDetails = ({ guest }: { guest?: GuestType }) => {
             </h3>
             <div className="grid md:grid-cols-2 gap-6 text-sm text-muted-foreground">
               <div>
-                <h4 className="font-semibold text-foreground mb-4">
+                <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
                   Vora Family
                 </h4>
-                <p>Daksha Bharat Jethalal Vora</p>
+                <h4 className="font-semibold text-foreground mb-2">
+                  Dada - Dadi
+                </h4>
+                <p>Mrs Kanchanben Jethalal Mulji Vora</p>
+                <p>Navinal | Mazgaon</p>
+                <h4 className="font-semibold text-foreground mt-2">
+                  Nana - Nani
+                </h4>
+                <p>Mrs Champaben Raghavji Nanji Sethia</p>
+                <p>Karaghoga | Mazgaon</p>
               </div>
               <div>
-                <h4 className="font-semibold text-foreground mb-4">
+                <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
                   Chheda Family
                 </h4>
-                <p>Deena Nilesh Premji Chheda</p>
+                <h4 className="font-semibold text-foreground mb-2">
+                  Dada - Dadi
+                </h4>
+                <p>Mrs Hemlataben Premji Velji Chheda</p>
+                <p>Luni | Chinchpokli</p>
+                <h4 className="font-semibold text-foreground mt-2">
+                  Nana - Nani
+                </h4>
+                <p>Mrs Madhuben Bhavanji Morarji Dedhia</p>
+                <p>Patri | Sion</p>
               </div>
             </div>
           </div>
@@ -463,16 +514,15 @@ const Gallery = () => {
 
   // Placeholder images - in a real app, these would be actual engagement photos
   const galleryImages = [
-    { id: 1, src: '/placeholder.svg', alt: 'Jay and Lisha at the beach' },
-    { id: 2, src: '/placeholder.svg', alt: 'Proposal moment at the coffee shop' },
-    { id: 3, src: '/placeholder.svg', alt: 'Engagement ring close-up' },
-    { id: 4, src: '/placeholder.svg', alt: 'Couple walking in the park' },
-    { id: 5, src: '/placeholder.svg', alt: 'Dancing at engagement party' },
-    { id: 6, src: '/placeholder.svg', alt: 'Romantic dinner date' },
-    { id: 7, src: '/placeholder.svg', alt: 'Hiking together' },
-    { id: 8, src: '/placeholder.svg', alt: 'Jay and Lisha laughing' },
-  ];
-
+    { id: 1, src: picture1 },
+    { id: 2, src: picture9},
+    { id: 3, src: picture3},
+    { id: 4, src: picture8},
+    { id: 5, src: picture5},
+    { id: 6, src: picture6},
+    { id: 7, src: picture7},
+    { id: 8, src: picture2},
+  ]
   const openLightbox = (index: number) => {
     setSelectedImage(index);
   };
@@ -497,9 +547,13 @@ const Gallery = () => {
     <section id="gallery" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="ornament text-6xl mb-4">❦</div>
+           <img
+            src={logo}
+            alt="Custom Logo"
+            className="mx-auto mb-4 h-20 w-20 object-contain"
+          />
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Journey
+            Our Memories
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -509,27 +563,31 @@ const Gallery = () => {
 
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={image.id}
-                className="aspect-square bg-muted rounded-lg overflow-hidden cursor-pointer group shadow-romantic hover:shadow-lg transition-all"
-                onClick={() => openLightbox(index)}
-              >
-                <div className="w-full h-full bg-gradient-romantic flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <div className="text-center text-muted-foreground">
-                    <div className="text-4xl mb-2">📷</div>
-                    <div className="text-sm font-medium">Photo {index + 1}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+  {galleryImages.map((image, index) => (
+    <div
+      key={image.id}
+      className="aspect-square bg-muted rounded-lg overflow-hidden cursor-pointer group shadow-romantic hover:shadow-lg transition-all"
+      
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+      />
+    </div>
+  ))}
+</div>
+
         </div>
 
         {/* Save the Date Card */}
         <div className="max-w-md mx-auto mt-16">
           <div className="bg-card rounded-lg shadow-romantic p-8 text-center border border-border/50">
-            <div className="ornament text-4xl mb-4 text-primary">❦</div>
+             <img
+            src={logo}
+            alt="Custom Logo"
+            className="mx-auto mb-4 h-20 w-20 object-contain"
+          />
             <h3 className="font-serif text-2xl font-bold text-card-foreground mb-2">
               Save the Date
             </h3>
@@ -598,33 +656,26 @@ const Footer = () => {
             <div className="font-script text-4xl text-champagne mb-4">
               Jay & Lisha
             </div>
-            <div className="ornament text-4xl text-primary mb-4">❦</div>
+             <img
+            src={logo}
+            alt="Custom Logo"
+            className="mx-auto mb-4 h-20 w-20 object-contain"
+          />
             <p className="text-lg text-background/80 max-w-md mx-auto">
               Thank you for being part of our love story. We can't wait to celebrate with you!
             </p>
           </div>
           <div className="flex justify-center space-x-6 mb-8">
+            
             <a
-              href="mailto:Jay.Lisha.wedding@example.com"
-              className="text-background/70 hover:text-champagne transition-colors"
-              aria-label="Email us"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-            <a
-              href="#"
+              href="https://www.instagram.com/lifewith_shaay?igsh=MTg0azR1OG4zYTloOA=="
               className="text-background/70 hover:text-champagne transition-colors"
               aria-label="Follow us on Instagram"
+              target="_blank"
             >
               <Instagram className="w-6 h-6" />
             </a>
-            <a
-              href="#"
-              className="text-background/70 hover:text-champagne transition-colors"
-              aria-label="Follow us on Facebook"
-            >
-              <Facebook className="w-6 h-6" />
-            </a>
+            
           </div>
           <div className="border-t border-background/20 pt-8">
             <div className="flex items-center justify-center space-x-2 text-background/60">
@@ -651,10 +702,11 @@ const Index = () => {
       <Header />
       <Hero />
       <Guest guest={guest} />
-      <OurStory />
+      {/* <OurStory /> */}
       <WeddingDetails guest={guest}/>
       <Gallery />
       <FriendsCarousel />
+      <MapSection />
       <Footer />
       
     </div>

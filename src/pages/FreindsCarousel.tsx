@@ -8,24 +8,24 @@ import person from "../../assets/person.jpeg";
 // Example data
 const messages = [
   {
-    name: "Aarav Mehta",
+    name: "Hitesh Ganger",
     img: person,
-    message: "Wishing you both a lifetime full of love, laughter, and happiness!",
+    message: "May your marriage be filled with all the right ingredients: a heap of love, a dash of humor, a touch of romance, and a spoonful of understanding. May your joy last forever. Wishing you lots of love and a lifetime of happiness. [We] love you.",
   },
   {
-    name: "Ishita Shah",
+    name: "Nirmal Rambhia",
     img: person,
-    message: "May this beautiful journey bring endless joy and togetherness.",
+    message: "May your bond grow stronger with each passing day. Best wishes for a blissful married life. Congratulations on your marriage !!",
   },
   {
-    name: "Rahul Patel",
+    name: "Vinit Soni",
     img: person,
-    message: "Cheers to love, friendship, and a future full of sweet memories.",
+    message: "From college benches to tuition classes, we have seen it all, Jay, and now you and Lisha get to ace the biggest subject of all: Love 💕📚😂 As they say, a happy marriage is built on countless little moments of laughter and care, wishing you both a lifetime full of them!",
   },
   {
-    name: "Nisha Kapoor",
+    name: "Mehvish",
     img: person,
-    message: "Wishing you a blessed married life and everlasting companionship.",
+    message: "Hope your honeymoon period lasts a lifetime & the companionship would lasts more then the 7 life's you have got!!! Stay blessed always ❤",
   },
   {
     name: "Aarav Mehta",
