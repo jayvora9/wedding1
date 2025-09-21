@@ -22,7 +22,7 @@ import mandala from "../../assets/madala.png";
 import logo from '../../assets/logo.png';
 import FriendsCarousel from './FreindsCarousel';
 import MapSection from './Map';
-
+import Countdown from './CountDown';
 type GuestType = {
   name: string;
   add1: string;
@@ -707,6 +707,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <Guest guest={guest}/>
+      <Countdown />
       <WeddingDetails guest={guest}/>
       <AddInfo />
       <Gallery />
