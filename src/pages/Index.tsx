@@ -17,7 +17,7 @@ import picture7 from '../../assets/IMG-20250918-WA0003.jpg';
 import picture8 from '../../assets/IMG-20250918-WA0006.jpg';
 import picture9 from '../../assets/IMG-20250918-WA0005.jpg';
 import { useParams } from "react-router-dom";
-import guests from "../../wedding_guests.json";
+import guests from "../../output.json";
 import mandala from "../../assets/madala.png";
 import logo from '../../assets/logo.png';
 import FriendsCarousel from './FreindsCarousel';

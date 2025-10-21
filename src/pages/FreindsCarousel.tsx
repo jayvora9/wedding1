@@ -4,69 +4,51 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Autoplay } from "swiper/modules";
-import person from "../../assets/person.jpeg";
+import hitesh from "../../assets/hitesh.jpg";
+import nirmal from "../../assets/nirmal.jpg";
+import aarvi from "../../assets/aarvi.jpg";
+import mehvish from "../../assets/mehvish.jpg";
+import sejul from "../../assets/sejul.jpg";
+import vinit from "../../assets/Vinit.jpg";
+import shradhha from "../../assets/Shraddha .jpg";
 // Example data
 const messages = [
   {
     name: "Hitesh Ganger",
-    img: person,
+    img: hitesh,
     message: "May your marriage be filled with all the right ingredients: a heap of love, a dash of humor, a touch of romance, and a spoonful of understanding. May your joy last forever. Wishing you lots of love and a lifetime of happiness. [We] love you.",
   },
   {
     name: "Nirmal Rambhia",
-    img: person,
+    img: nirmal,
     message: "May your bond grow stronger with each passing day. Best wishes for a blissful married life. Congratulations on your marriage !!",
   },
   {
     name: "Vinit Soni",
-    img: person,
+    img: vinit,
     message: "From college benches to tuition classes, we have seen it all, Jay, and now you and Lisha get to ace the biggest subject of all: Love 💕📚😂 As they say, a happy marriage is built on countless little moments of laughter and care, wishing you both a lifetime full of them!",
   },
   {
     name: "Mehvish",
-    img: person,
+    img: mehvish,
     message: "Hope your honeymoon period lasts a lifetime & the companionship would lasts more then the 7 life's you have got!!! Stay blessed always ❤",
   },
   {
-    name: "Aarav Mehta",
-    img: person,
-    message: "Wishing you both a lifetime full of love, laughter, and happiness!",
+    name: "Aarvi and Aarohi Uthale",
+    img: aarvi,
+    message: "Big congratulations on finally signing the lifetime contract of love! 💍 No refunds, no returns—just endless adventures, shared snacks, and occasional arguments over what to watch and where to go for outting.😄 Wishing you both a married life full of inside jokes, spontaneous dance moves, late-night food cravings, and love that grows stronger ! Cheers to the perfect team—one slightly crazier than the other! 🥂❤ With lots of love and laughter",
   },
   {
-    name: "Ishita Shah",
-    img: person,
-    message: "May this beautiful journey bring endless joy and togetherness.",
+    name: "Sejul",
+    img: sejul,
+    message: "Lisha…you are 💎 and Jay billionaire ban gaya hai after getting a 💎 …stay as you are don’t ever change…pagalgiri kabhi rukni nai chahiye teri…innocent chehre k piche totally crazy insaan…I am so so so happy for beginning of the new chapter of your love story🥰 All the best ❤",
   },
   {
-    name: "Rahul Patel",
-    img: person,
-    message: "Cheers to love, friendship, and a future full of sweet memories.",
+    name: "Shraddha",
+    img: shradhha,
+    message: "Most awaited to see you both become the most adorable married couple in the world. May your love and bond grow deeper with each passing year",
   },
-  {
-    name: "Nisha Kapoor",
-    img: person,
-    message: "Wishing you a blessed married life and everlasting companionship.",
-  },
-  {
-    name: "Aarav Mehta",
-    img: person,
-    message: "Wishing you both a lifetime full of love, laughter, and happiness!",
-  },
-  {
-    name: "Ishita Shah",
-    img: person,
-    message: "May this beautiful journey bring endless joy and togetherness.",
-  },
-  {
-    name: "Rahul Patel",
-    img: person,
-    message: "Cheers to love, friendship, and a future full of sweet memories.",
-  },
-  {
-    name: "Nisha Kapoor",
-    img: person,
-    message: "Wishing you a blessed married life and everlasting companionship.",
-  },
+  
 ];
 
 export default function FriendsCarousel() {
