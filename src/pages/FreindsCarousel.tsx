@@ -39,12 +39,12 @@ const messages = [
     message: "Big congratulations on finally signing the lifetime contract of love! 💍 No refunds, no returns—just endless adventures, shared snacks, and occasional arguments over what to watch and where to go for outting.😄 Wishing you both a married life full of inside jokes, spontaneous dance moves, late-night food cravings, and love that grows stronger ! Cheers to the perfect team—one slightly crazier than the other! 🥂❤ With lots of love and laughter",
   },
   {
-    name: "Sejul",
+    name: "Sejul Shah",
     img: sejul,
     message: "Lisha…you are 💎 and Jay billionaire ban gaya hai after getting a 💎 …stay as you are don’t ever change…pagalgiri kabhi rukni nai chahiye teri…innocent chehre k piche totally crazy insaan…I am so so so happy for beginning of the new chapter of your love story🥰 All the best ❤",
   },
   {
-    name: "Shraddha",
+    name: "Shraddha Khatri",
     img: shradhha,
     message: "Most awaited to see you both become the most adorable married couple in the world. May your love and bond grow deeper with each passing year",
   },
