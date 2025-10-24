@@ -9,7 +9,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.units import inch
 
 # Register the font once at the top of your script
-font_path = r"D:/SHAAY/invitation/jay/fonts/Charm-Bold.ttf"
+font_path = r"../jay/fonts/Charm-Bold.ttf"
 pdfmetrics.registerFont(TTFont("Charm", font_path))
 
 # FONT_NAME = "Charm"
@@ -66,7 +66,22 @@ def create_page2_pdf(guest_key, guest_data, save_path):
     # Address below name
     c.setFont(FONT_NAME, 30)
     c.setFillColorRGB(22/255, 117/255, 68/255)
-    c.drawCentredString(width/2, height - 1.2*inch,guest_data['add1'] + "  " + guest_data['add2'])
+    
+    # Handle blank address fields
+    add1 = guest_data.get('add1', '').strip()
+    add2 = guest_data.get('add2', '').strip()
+    
+    if add1 and add2:
+        address_text = add1 + "  " + add2
+    elif add1:
+        address_text = add1
+    elif add2:
+        address_text = add2
+    else:
+        address_text = ""
+    print(f"Address for {guest_data['name']}: '{address_text}'")
+    if address_text:
+        c.drawCentredString(width/2, height - 1.2*inch, address_text)
 
     c.save()
 
