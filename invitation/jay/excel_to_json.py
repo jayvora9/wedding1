@@ -37,8 +37,8 @@ def excel_to_json(excel_path, json_path):
         # Build record
         record = {
             "name": str(row.get('Full Name', '')).strip(),
-            "add1": str(row.get('Mumbai Area', '')).strip(),
-            "add2": str(row.get('Village', '')).strip(),
+            "add1": str(row.get('Mumbai Area', '')).strip() if pd.notna(row.get('Mumbai Area')) else "",
+            "add2": str(row.get('Village', '')).strip() if pd.notna(row.get('Village')) else "",
             "side": str(row.get('Side', '')).strip(),
             "afternoon": is_afternoon,
             "afternoonCount": str(row.get('Chori', '')).strip(),
