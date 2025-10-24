@@ -7,7 +7,7 @@ from reportlab.lib.units import inch, cm
 from reportlab.lib.colors import Color
 
 # Register the font once at the top of your script
-font_path = r"D:/SHAAY/invitation/jay/fonts/Charm-Bold.ttf"
+font_path = r"fonts/Charm-Bold.ttf"
 pdfmetrics.registerFont(TTFont("Charm", font_path))
 
 def read_excel_data(excel_file, sheet_name="kankotri"):
