@@ -45,7 +45,15 @@ def create_page2_pdf(guest_key, guest_data, save_path):
 
     # Text for the name
     name_text = f"{guest_data['name']} & Family"
-    c.setFont(FONT_NAME, 30)
+    # Adjust font size based on name length to prevent overflow
+    font_size = 30
+    if len(name_text) > 25:
+        font_size = 29  # Decrease font size by 1 for long names
+    if len(name_text) > 27:
+        font_size = 28
+    if len(name_text) > 30:
+        font_size = 26  
+    c.setFont(FONT_NAME, font_size)
     c.setFillColorRGB(22/255, 117/255, 68/255)
 
     y_position = height - 0.6*inch
@@ -64,7 +72,7 @@ def create_page2_pdf(guest_key, guest_data, save_path):
     )
 
     # Address below name
-    c.setFont(FONT_NAME, 30)
+    c.setFont(FONT_NAME, font_size)
     c.setFillColorRGB(22/255, 117/255, 68/255)
     
     # Handle blank address fields

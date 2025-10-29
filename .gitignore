@@ -137,3 +137,14 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+# Ignore all generated invitation PDFs and their containing folders
+# Ignore any 'invitations' directories anywhere in the repo (and their contents)
+**/invitations/
+# Also explicitly ignore PDFs inside any invitations folders
+**/invitations/*.pdf
+
+# Legacy/explicit paths (if you previously created these folders)
+invitation/**/invitations/
+invitation/**/invitations/*.pdf
