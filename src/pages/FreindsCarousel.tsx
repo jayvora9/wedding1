@@ -11,6 +11,7 @@ import mehvish from "../../assets/mehvish.jpg";
 import sejul from "../../assets/sejul.jpg";
 import vinit from "../../assets/Vinit.jpg";
 import shradhha from "../../assets/Shraddha .jpg";
+import shweta from "../../assets/Shweta Aatara.jpg";
 // Example data
 const messages = [
   {
@@ -47,6 +48,11 @@ const messages = [
     name: "Shraddha Khatri",
     img: shradhha,
     message: "Most awaited to see you both become the most adorable married couple in the world. May your love and bond grow deeper with each passing year",
+  },
+  {
+    name: "Shweta Aatara",
+    img: shweta,
+    message: "Wishing you a marriage as sweet as gulab jamun and as spicy as chaat! May your love continue to be the perfect blend! 🍰❤️",
   },
   
 ];
