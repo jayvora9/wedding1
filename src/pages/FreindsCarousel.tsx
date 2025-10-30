@@ -11,7 +11,7 @@ import mehvish from "../../assets/mehvish.jpg";
 import sejul from "../../assets/sejul.jpg";
 import vinit from "../../assets/Vinit.jpg";
 import shradhha from "../../assets/Shraddha .jpg";
-import shweta from "../../assets/Shweta Aatara.jpg";
+import shweta from "../../assets/shweta.jpg";
 // Example data
 const messages = [
   {
