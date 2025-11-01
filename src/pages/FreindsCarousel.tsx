@@ -12,6 +12,7 @@ import sejul from "../../assets/sejul.jpg";
 import vinit from "../../assets/Vinit.jpg";
 import shradhha from "../../assets/Shraddha .jpg";
 import shweta from "../../assets/shweta.jpg";
+import sneha from "../../assets/sneha.jpg";
 // Example data
 const messages = [
   {
@@ -28,6 +29,11 @@ const messages = [
     name: "Vinit Soni",
     img: vinit,
     message: "From college benches to tuition classes, we have seen it all, Jay, and now you and Lisha get to ace the biggest subject of all: Love 💕📚😂 As they say, a happy marriage is built on countless little moments of laughter and care, wishing you both a lifetime full of them!",
+  },
+  {
+    name: "Sneha Ghosh",
+    img: sneha,
+    message: "Wishing you and Lisha a lifetime of laughter, love, and little moments that turn into the best memories❤️",
   },
   {
     name: "Mehvish",

@@ -168,5 +168,5 @@ def generate_invitation(guest_key, guest_data):
 
 # Generate invitations for all guests
 for key, data in guests.items():
-    if data.get("side", "").strip().lower() == "chheda":
+    if data.get("side", "").strip().lower() == "chheda" and data.get("name","").strip()=="Naman Jain":
         generate_invitation(key, data)

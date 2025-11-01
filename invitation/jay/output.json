@@ -407,7 +407,7 @@
     "afternoon": true,
     "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "2 people"
+    "eveningCount": "Sahkutum"
   },
   "840016": {
     "name": "Mr Nimesh Chandrakant Dedhia",
@@ -655,7 +655,7 @@
     "add2": "Bidada",
     "side": "Vora",
     "afternoon": true,
-    "afternoonCount": "2 people",
+    "afternoonCount": "Sah kutum",
     "evening": true,
     "eveningCount": "Sahkutum"
   },
@@ -665,7 +665,7 @@
     "add2": "Bidada",
     "side": "Vora",
     "afternoon": true,
-    "afternoonCount": "2 people",
+    "afternoonCount": "Sah kutum",
     "evening": true,
     "eveningCount": "Sahkutum"
   },
@@ -1699,6 +1699,16 @@
     "evening": true,
     "eveningCount": "Sahkutum"
   },
+  "600931": {
+    "name": "Mr Narendrabhai Suthar",
+    "add1": "Baroda",
+    "add2": "Rajasthan",
+    "side": "Vora",
+    "afternoon": false,
+    "afternoonCount": "0 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
   "575833": {
     "name": "Hemlataben Premji Chheda",
     "add1": "Dahisar",
@@ -1787,7 +1797,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "595032": {
     "name": "Ratanben Vasanji Gala",
@@ -2774,30 +2784,30 @@
     "add1": "",
     "add2": "",
     "side": "Chheda",
-    "afternoon": false,
-    "afternoonCount": "0 people",
+    "afternoon": true,
+    "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "0 people"
+    "eveningCount": "2 people"
   },
   "554897": {
     "name": "Naman Jain",
     "add1": "Kurla",
     "add2": "",
     "side": "Chheda",
-    "afternoon": false,
-    "afternoonCount": "0 people",
+    "afternoon": true,
+    "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "0 people"
+    "eveningCount": "2 people"
   },
   "952637": {
     "name": "Richard Stephen",
     "add1": "Thane",
     "add2": "",
     "side": "Chheda",
-    "afternoon": false,
-    "afternoonCount": "0 people",
+    "afternoon": true,
+    "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "0 people"
+    "eveningCount": "2 people"
   },
   "390174": {
     "name": "Jalak Jain",
@@ -2967,7 +2977,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "805287": {
     "name": "Urvi Viral Gogri",
@@ -3087,7 +3097,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "632943": {
     "name": "Rasik Chhaganlal Chheda",
@@ -3097,7 +3107,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "640031": {
     "name": "Kirti Chhaganlal Chheda",
@@ -3107,7 +3117,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "993996": {
     "name": "Jayvantiben Kalyanji Rambhia",
@@ -3117,7 +3127,7 @@
     "afternoon": true,
     "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "703829": {
     "name": "Sushila Shantilal Rambhia",
@@ -3147,7 +3157,7 @@
     "afternoon": true,
     "afternoonCount": "2 people",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "573149": {
     "name": "Alka Nipesh Gada",
@@ -3357,7 +3367,7 @@
     "afternoon": true,
     "afternoonCount": "Sah kutum",
     "evening": true,
-    "eveningCount": "Sah kutum"
+    "eveningCount": "Sahkutum"
   },
   "495804": {
     "name": "Dr. Heril Velji Nandu",
