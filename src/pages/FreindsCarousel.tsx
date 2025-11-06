@@ -13,6 +13,7 @@ import vinit from "../../assets/Vinit.jpg";
 import shradhha from "../../assets/Shraddha .jpg";
 import shweta from "../../assets/shweta.jpg";
 import sneha from "../../assets/sneha.jpg";
+import sahana from "../../assets/suhasna.jpeg";
 // Example data
 const messages = [
   {
@@ -59,6 +60,11 @@ const messages = [
     name: "Shweta Aatara",
     img: shweta,
     message: "Wishing you a marriage as sweet as gulab jamun and as spicy as chaat! May your love continue to be the perfect blend! 🍰❤️",
+  },
+  {
+    name: "Sahana",
+    img: sahana,
+    message: "Lisha & Jay, wishing you both a lifetime filled with love, laughter, and countless little moments that make your hearts smile 💞 You two are such a beautiful pair—made for each other in every way! Can’t wait to see all the magic you create together 💫",
   },
   
 ];
