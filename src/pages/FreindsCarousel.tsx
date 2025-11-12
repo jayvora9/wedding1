@@ -14,6 +14,7 @@ import shradhha from "../../assets/Shraddha .jpg";
 import shweta from "../../assets/shweta.jpg";
 import sneha from "../../assets/sneha.jpg";
 import sahana from "../../assets/suhasna.jpeg";
+import bhavesh from "../../assets/bhavesh.jpeg";
 // Example data
 const messages = [
   {
@@ -45,6 +46,11 @@ const messages = [
     name: "Aarvi and Aarohi Uthale",
     img: aarvi,
     message: "Big congratulations on finally signing the lifetime contract of love! 💍 No refunds, no returns—just endless adventures, shared snacks, and occasional arguments over what to watch and where to go for outting.😄 Wishing you both a married life full of inside jokes, spontaneous dance moves, late-night food cravings, and love that grows stronger ! Cheers to the perfect team—one slightly crazier than the other! 🥂❤ With lots of love and laughter",
+  },
+  {
+    name: "Bhavesh Ganger",
+    img: bhavesh,
+    message: "⁠Congratulations on finding your forever! May your marriage be filled with love, trust, and endless blessings. 😎",
   },
   {
     name: "Sejul Shah",
