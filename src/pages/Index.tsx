@@ -10,12 +10,28 @@ import heroImage from '../../assets/IMG-20250918-WA0006.jpg';
 import picture1 from '../../assets/img2.jpg';
 import picture2 from '../../assets/img1.jpg';
 import picture3 from '../../assets/DSC09085.png';
-import picture4 from '../../assets/DSC08340.png';
 import picture5 from '../../assets/IMG-20250918-WA0001.jpg';
 import picture6 from '../../assets/IMG-20250918-WA0002.jpg';
 import picture7 from '../../assets/IMG-20250918-WA0003.jpg';
 import picture8 from '../../assets/IMG-20250918-WA0006.jpg';
 import picture9 from '../../assets/IMG-20250918-WA0005.jpg';
+
+// Newly added gallery images (1.jpeg ... 13.jpeg)
+import img1 from '../../assets/1.jpeg';
+import img2 from '../../assets/2.jpeg';
+import img3 from '../../assets/3.jpeg';
+import img4 from '../../assets/4.jpeg';
+import img5 from '../../assets/5.jpeg';
+import img6 from '../../assets/6.jpeg';
+import img7 from '../../assets/7.jpeg';
+import img8 from '../../assets/8.jpeg';
+import img9 from '../../assets/9.jpeg';
+import img10 from '../../assets/10.jpeg';
+import img11 from '../../assets/11.jpeg';
+import img12 from '../../assets/12.jpeg';
+import img13 from '../../assets/13.jpeg';
+import img14 from '../../assets/14.jpeg';
+
 import { useParams } from "react-router-dom";
 import guests from "../../output.json";
 import mandala from "../../assets/madala.png";
@@ -113,7 +129,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0" >
         <img
-  src={heroImage}
+  src={img6}
   style={{ marginTop: '60px' }}
   alt="Jay and Lisha - Wedding Couple"
   className="w-full h-full object-cover"
@@ -519,16 +535,29 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   // Placeholder images - in a real app, these would be actual engagement photos
-  const galleryImages = [
-    { id: 1, src: picture1 },
-    { id: 2, src: picture9},
-    { id: 3, src: picture3},
-    { id: 4, src: picture8},
-    { id: 5, src: picture5},
-    { id: 6, src: picture6},
-    { id: 7, src: picture7},
-    { id: 8, src: picture2},
-  ]
+  // Combine the original placeholder images with the newly added images (1.jpeg - 13.jpeg)
+  const existingImages = [
+    picture1,
+    picture9,
+    picture3,
+    picture8,
+    picture5,
+    picture6,
+    picture7,
+    picture2,
+  ];
+
+  const newImages = [
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13,
+  ];
+
+  const allImages = [...existingImages, ...newImages];
+
+  const galleryImages = allImages.map((src, idx) => ({
+    id: idx + 1,
+    src,
+    alt: `Memory ${idx + 1}`,
+  }));
   const openLightbox = (index: number) => {
     setSelectedImage(index);
   };
