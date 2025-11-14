@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 import multiprocessing
 
 # ===== SETTINGS =====
-main_folder = "../lisha/invitations/"    # Folder containing PDFs
+main_folder = "./test"    # Folder containing PDFs
 pdf_page_duration = 5          # seconds per page
 fade_duration = 1              # seconds for fade-in/out
 song_path = "inviteSong.mp3"   # Path to background song
@@ -15,7 +15,8 @@ target_w, target_h = 1080, 1920  # Output video size
 # If you want to start processing from a specific folder (under `main_folder`),
 # set START_FOLDER to its name (e.g. "Nilesh Premji Chheda") or a path
 # relative to the script. Leave empty to process all folders from the beginning.
-START_FOLDER = "Nilesh Premji Chheda"
+# START_FOLDER = "Nilesh Premji Chheda"
+START_FOLDER = None
 
 # ===== HELPER: auto-crop white borders =====
 def trim_whitespace(im):
