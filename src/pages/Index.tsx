@@ -15,22 +15,19 @@ import picture6 from '../../assets/IMG-20250918-WA0002.jpg';
 import picture7 from '../../assets/IMG-20250918-WA0003.jpg';
 import picture8 from '../../assets/IMG-20250918-WA0006.jpg';
 import picture9 from '../../assets/IMG-20250918-WA0005.jpg';
-
+import hero from '../../assets/hero.jpeg';
 // Newly added gallery images (1.jpeg ... 13.jpeg)
 import img1 from '../../assets/1.jpeg';
-import img2 from '../../assets/2.jpeg';
-import img3 from '../../assets/3.jpeg';
-import img4 from '../../assets/4.jpeg';
-import img5 from '../../assets/5.jpeg';
-import img6 from '../../assets/6.jpeg';
-import img7 from '../../assets/7.jpeg';
-import img8 from '../../assets/8.jpeg';
-import img9 from '../../assets/9.jpeg';
-import img10 from '../../assets/10.jpeg';
-import img11 from '../../assets/11.jpeg';
-import img12 from '../../assets/12.jpeg';
-import img13 from '../../assets/13.jpeg';
-import img14 from '../../assets/14.jpeg';
+import img2 from '../../assets/3.jpeg';
+import img3 from '../../assets/4.jpeg';
+import img4 from '../../assets/5.jpeg';
+import img5 from '../../assets/6.jpeg';
+import img6 from '../../assets/7.jpeg';
+import img7 from '../../assets/8.jpeg';
+import img8 from '../../assets/9.jpeg';
+import img9 from '../../assets/10.jpeg';
+import img10 from '../../assets/12.jpeg';
+import img11 from '../../assets/13.jpeg';
 
 import { useParams } from "react-router-dom";
 import guests from "../../output.json";
@@ -129,7 +126,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0" >
         <img
-  src={img6}
+  src={hero}
   style={{ marginTop: '60px' }}
   alt="Jay and Lisha - Wedding Couple"
   className="w-full h-full object-cover"
@@ -548,7 +545,7 @@ const Gallery = () => {
   ];
 
   const newImages = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13,
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11
   ];
 
   const allImages = [...existingImages, ...newImages];

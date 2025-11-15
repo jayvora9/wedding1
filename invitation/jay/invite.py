@@ -170,5 +170,5 @@ def generate_invitation(guest_key, guest_data):
 
 # Generate invitations for all guests
 for key, data in guests.items():
-    if data.get("side", "").strip().lower() == "vora" and data.get("name","").strip()=="Mr Narendra Damordardas Modi":
+    if data.get("side", "").strip().lower() == "vora" and data.get("name","").strip()=="Mr Bhavik Maru":
         generate_invitation(key, data)

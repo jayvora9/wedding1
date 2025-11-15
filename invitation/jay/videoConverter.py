@@ -8,7 +8,7 @@ import multiprocessing
 
 # ===== SETTINGS =====
 main_folder = "./test"    # Folder containing PDFs
-pdf_page_duration = 5          # seconds per page
+pdf_page_duration = 6          # seconds per page
 fade_duration = 1              # seconds for fade-in/out
 song_path = "inviteSong.mp3"   # Path to background song
 target_w, target_h = 1080, 1920  # Output video size

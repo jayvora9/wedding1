@@ -1589,6 +1589,16 @@
     "evening": true,
     "eveningCount": "2 people"
   },
+  "329513": {
+    "name": "Mr Bhavik Maru",
+    "add1": "Mulund",
+    "add2": "Jamnagar",
+    "side": "Vora",
+    "afternoon": true,
+    "afternoonCount": "2 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
   "398130": {
     "name": "Mr Kirti Meghji Haria",
     "add1": "Goregaon",
@@ -1602,6 +1612,16 @@
   "255859": {
     "name": "Mr Bhavin Mayur Soni",
     "add1": "Andheri",
+    "add2": "Vidh",
+    "side": "Vora",
+    "afternoon": true,
+    "afternoonCount": "2 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
+  "255819": {
+    "name": "Mr Mayur M Soni",
+    "add1": "Vashi",
     "add2": "Vidh",
     "side": "Vora",
     "afternoon": true,
@@ -1693,6 +1713,16 @@
     "name": "Mr Samanway Sneha Ghosh",
     "add1": "Bangalore",
     "add2": "West Bengal",
+    "side": "Vora",
+    "afternoon": true,
+    "afternoonCount": "Sah kutum",
+    "evening": true,
+    "eveningCount": "Sahkutum"
+  },
+  "600932": {
+    "name": "Mr Narendra Damordardas Modi",
+    "add1": "New Delhi",
+    "add2": "Gujarat",
     "side": "Vora",
     "afternoon": true,
     "afternoonCount": "Sah kutum",
