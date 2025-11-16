@@ -502,14 +502,14 @@ const AddInfo = () => {
             </h4>
             <p>Mrs Kanchanben Jethalal Mulji Vora</p>
             <p>Navinal | Mazgaon</p>
-            <h4 className="font-semibold text-foreground mt-2">
+            <h4 className="font-semibold text-foreground mt-2 ">
               Nana - Nani
             </h4>
             <p>Mrs Champaben Raghavji Nanji Sethia</p>
             <p>Karaghoga | Mazgaon</p>
           </div>
           <div>
-            <h4 className="font-serif text-xl font-semibold text-foreground mb-4">
+            <h4 className="font-serif text-xl font-semibold text-foreground mt-4 mb-4">
               Chheda Family
             </h4>
             <h4 className="font-semibold text-foreground mb-2">
