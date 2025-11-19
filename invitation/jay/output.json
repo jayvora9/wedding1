@@ -945,7 +945,17 @@
     "add2": "Vadala",
     "side": "Vora",
     "afternoon": true,
-    "afternoonCount": "2 people",
+    "afternoonCount": "Sah kutum",
+    "evening": true,
+    "eveningCount": "Sahkutum"
+  },
+  "341196": {
+    "name": "Navinal Mahajan",
+    "add1": "Navinal",
+    "add2": "",
+    "side": "Vora",
+    "afternoon": true,
+    "afternoonCount": "Sah kutum",
     "evening": true,
     "eveningCount": "Sahkutum"
   },
@@ -957,7 +967,7 @@
     "afternoon": false,
     "afternoonCount": "0 people",
     "evening": true,
-    "eveningCount": "2 people"
+    "eveningCount": "Sahkutum"
   },
   "720592": {
     "name": "Mrs Trupti Hiten Chheda",
@@ -1150,7 +1160,7 @@
     "eveningCount": "Sahkutum"
   },
   "586179": {
-    "name": "Mr Asha Harshad Satra",
+    "name": "Mrs Asha Harshad Satra",
     "add1": "Dadar",
     "add2": "Gundala",
     "side": "Vora",
@@ -1200,7 +1210,7 @@
     "eveningCount": "2 people"
   },
   "749887": {
-    "name": "Mrs Bhavnaben Solanki",
+    "name": "Mrs Bhavnaben Rathod",
     "add1": "Dadar",
     "add2": "Rajasthan",
     "side": "Vora",
@@ -1503,6 +1513,36 @@
     "name": "Mr Navin Maganlal Vora",
     "add1": "Navi Mumbai",
     "add2": "Navinal",
+    "side": "Vora",
+    "afternoon": false,
+    "afternoonCount": "0 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
+  "206317": {
+    "name": "Mr Riken Navin Vora",
+    "add1": "Navi Mumbai",
+    "add2": "Navinal",
+    "side": "Vora",
+    "afternoon": false,
+    "afternoonCount": "0 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
+  "226317": {
+    "name": "Mr Kamleshbhai",
+    "add1": "Khadavli",
+    "add2": "Uttar Pradesh",
+    "side": "Vora",
+    "afternoon": false,
+    "afternoonCount": "0 people",
+    "evening": true,
+    "eveningCount": "2 people"
+  },
+  "226417": {
+    "name": "Mrs Sangeeta and Mrs Jayshree",
+    "add1": "Thane",
+    "add2": "",
     "side": "Vora",
     "afternoon": false,
     "afternoonCount": "0 people",
